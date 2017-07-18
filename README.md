@@ -1,7 +1,7 @@
-# modified to support new environmental variables for
+## modified to support new environmental variables for
 
-NETWORK - attachable overlay network
-NAME - container name
+# NETWORK - attachable overlay network
+# NAME - container name
 
 as well as source https://raw.githubusercontent.com/jfrazelle/dotfiles/master/etc/docker/seccomp/chrome.json
 
