@@ -1,11 +1,10 @@
-## modified to support new environmental variables for
-
-# NETWORK - attachable overlay network
-# NAME - container name
-
-as well as source https://raw.githubusercontent.com/jfrazelle/dotfiles/master/etc/docker/seccomp/chrome.json
-
-for the --security-opt seccomp=/chrome.json support
+modified to support new environmental variables for
+```
+NETWORK: <the attachable overlay network>
+NAME: <some container name>
+```
+as well as source https://raw.githubusercontent.com/jfrazelle/dotfiles/master/etc/docker/seccomp/chrome.json into the container for
+for support of the --security-opt seccomp=/chrome.json flag
 
 # Docker Privileged Proxy
 
