@@ -7,7 +7,8 @@
 use Socket;
 
 # A name for the instance we're proxying
-my $name = "$ENV{HOSTNAME}-instance";
+my $name = $ENV{NAME};
+my $NETWORK = $ENV{NETWORK};
 my $PORT = $ENV{PORT};
 my $DOCKER_RUN = $ENV{DOCKER_RUN};
 
@@ -16,7 +17,7 @@ my $DOCKER_RUN = $ENV{DOCKER_RUN};
 $SIG{INT} = \&stopper;
 $SIG{TERM} = \&stopper;
 
-my $cid = `docker run -d --name $name $DOCKER_RUN`;
+my $cid = `docker run -d --name $name --network $NETWORK $DOCKER_RUN`;
 chomp $cid;
 print "Started container $cid\n";
 

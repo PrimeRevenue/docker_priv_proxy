@@ -12,7 +12,7 @@ RUN apt-get update \
 RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 
 COPY startup /startup
-
+ADD https://raw.githubusercontent.com/jfrazelle/dotfiles/master/etc/docker/seccomp/chrome.json /chrome.json
 # NOTE:  The array version of CMD is required here
 # because docker sends SIGTERM to only PID 1.
 # With the shell syntax, /bin/sh is PID 1, and

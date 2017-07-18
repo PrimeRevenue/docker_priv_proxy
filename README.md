@@ -1,3 +1,12 @@
+# modified to support new environmental variables for
+
+NETWORK - attachable overlay network
+NAME - container name
+
+as well as source https://raw.githubusercontent.com/jfrazelle/dotfiles/master/etc/docker/seccomp/chrome.json
+
+for the --security-opt seccomp=/chrome.json support
+
 # Docker Privileged Proxy
 
 This image is a wrapper / proxy intended to workaround the limitation
@@ -39,8 +48,10 @@ docker service create \
   --name db2_proxy \
   --network db2_net \
   --mount "type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock" \
-  -e DOCKER_RUN="--network db2_net --cap-add=IPC_OWNER --ipc=host -e DB2INST1_PASSWORD=password -e LICENSE=accept ibmcom/db2express-c:latest db2start" \
+  -e DOCKER_RUN="--cap-add=IPC_OWNER --ipc=host -e DB2INST1_PASSWORD=password -e LICENSE=accept ibmcom/db2express-c:latest db2start" \
   -e PORT=50000 \
+  -e NETWORK=db2_net \
+  -e NAME=db2_proxy_db2express
   -p 50002:50000 \
   docker_priv_proxy
 ```
